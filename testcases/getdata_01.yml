@@ -1,0 +1,20 @@
+# 获取响应数据（响应行（200，ok）响应正文（json，html等），响应头）
+- config:
+    name: 验证能否打开baidu主页
+    base_url: https://www.baidu.com
+
+- test:
+    name: 接口名称 百度主页接口
+    request:
+      url: /
+      method: GET
+    extract:  # 提取值到变量存储
+      - code: status_code
+      - info: reason
+      - time: elapsed.microse # 请求响应时间，单位：毫秒
+      - header_con: headers.Content-Type   # 提取响应头部信息
+    validate:
+      - eq: [$info,'OK']
+      - eq: [$code,200]  # $code 表示取code变量内的值
+      - eq: [$header_con,'text/html']
+

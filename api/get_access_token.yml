@@ -1,0 +1,12 @@
+# 获取token接口定义
+name: get access_token api
+base_url: ${ENV(BASE_URL)}
+request:
+  method: GET
+  url: /cgi-bin/token
+  params:
+    grant_type: client_credential
+    appID: wxb4f279bf92396ac6
+    appsecret: e6d7e52c5babdd0941e2f4b1af400de4
+validate: # 公用断言 写简单就可以，复杂的写在用例里
+  - eq: ['status_code',200]

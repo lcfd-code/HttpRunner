@@ -1,0 +1,16 @@
+- config:
+    name: 验证获取access_token接口
+    base_url: https://api.weixin.qq.com
+
+- test:
+    name: 调用access_token接口
+    request:
+      url: /cgi-bin/token
+      method: GET
+      params:
+        grant_type: client_credential
+        appID: wxb4f279bf92396ac6
+        appsecret: e6d7e52c5babdd0941e2f4b1af400de4
+    validate:
+      - eq: ['status_code',200]
+      - eq: [content.extract,7200]

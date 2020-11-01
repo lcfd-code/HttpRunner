@@ -1,0 +1,18 @@
+# 获取响应数据 响应正文（json，html等）
+
+- config:
+    name: 验证 获取公众号已创建的标签
+    base_url: https://api.weixin.qq.com
+
+- test:
+    name: 调用获取公众号已创建的标签接口
+    request:
+      url: /cgi-bin/tags/get
+      method: GET
+      params:
+        access_token: 38_Zn2SKW9Ug9qOsHpJKjx6Bz-R9BqC7q_eVIwrGrGkvFiydx0neTGO6A7iSocQvF-YRbe6lmViLvWFKA_ZsbYMEcJ9WeolzTV5pIpeGAzmRsHvaO01cqTIhh-b6wXCuVX2Kl0syNYakd7Lhas4MPRaAJACFH
+    extract:
+      bname: content.tags.4.name
+    validate:
+      - eq: [$bname,"liling01"]
+
