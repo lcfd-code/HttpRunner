@@ -7,6 +7,6 @@ request:
   params:
     grant_type: client_credential
     appID: wxb4f279bf92396ac6
-    appsecret: e6d7e52c5babdd0941e2f4b1af400de4
-validate: # 公用断言 写简单就可以，复杂的写在用例里
+    secret: e6d7e52c5babdd0941e2f4b1af400de4
+validate:  # 一般这里做非业务的断言 简单
   - eq: ['status_code',200]
