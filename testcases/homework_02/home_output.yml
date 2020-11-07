@@ -1,0 +1,22 @@
+# output 输出到控制台
+- config:
+    name: 腾讯首页测试
+    base_url: https://www.qq.com
+    output: # 输出控制台
+      - title
+
+- test:
+    name: 获取腾讯首页测试
+    request:
+      method: GET
+      url: /
+      headers:
+        accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36
+    extract: # 截取
+      title: '<title>(.+?)</title>'
+    validate: # 断言
+      - eq: ['status_code',200]
+
+
+
